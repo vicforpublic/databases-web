@@ -1,7 +1,12 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+	
+	<link rel="stylesheet" href="css/css1.css">
+</head>
 <body>
+	<!-- inline js -->
 <script type="text/javascript">
 function altera() {
 	var myobject = document.getElementById('demo')
@@ -13,16 +18,22 @@ function altera() {
 		myobject.innerHTML = 'nao enche'
 	}
 }
-
+function changeToItalic(){
+	var element = document.getElementById("btn1");
+	element.classList.toggle("normal-it");
+	element.classList.toggle("notnormal");
+}
 </script>
 
-<h2>My First JavaScript</h2>
+<h2>My (not) First JavaScript</h2>
 
 <button type="button"
 onclick="altera()">
 Click me to display Date and Time.</button>
 
 <p id="demo"></p>
+<br>
+<button id="btn1" class = "notnormal" onclick="changeToItalic()">click me to change my css</button>
 
 
 

@@ -1,0 +1,10 @@
+.notnormal {
+    padding: 10px;
+    background-color: white;
+    color: red;
+    font-size: 12px;
+}
+
+.normal-it{
+	font-style: italic;
+}
