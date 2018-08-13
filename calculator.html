@@ -1,86 +1,99 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>CALCULADORA</title>
+	<title>calculator</title>
 
- <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    -->
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	 crossorigin="anonymous">
+
 	<link rel="stylesheet" href="css/css2.css">
+</head>
+<center>
 
+	<body>
+		<h2>Calculator</h2>
 
- </head>
- <center>
-<body>
-<h2>Calculadora</h2>
+		<p id="demo"> </p>
+		<div class="btn-group btn-matrix">
+			<button type="button" class="btn btn-outline-dark" onclick="clicarNumero(9)">9</button>
+			<button type="button" class="btn btn-outline-dark" onclick="clicarNumero(8)">8</button>
+			<button type="button" class="btn btn-outline-dark" onclick="clicarNumero(7)">7</button>
+			<button type="button" class="btn btn-outline-danger" onclick="operador('/')">/</button>
+		</div>
+		<br>
+		<div class="btn-group btn-matrix">
+			<button type="button" class="btn btn-outline-dark" onclick="clicarNumero(6)">6</button>
+			<button type="button" class="btn btn-outline-dark" onclick="clicarNumero(5)">5</button>
+			<button type="button" class="btn btn-outline-dark" onclick="clicarNumero(4)">4</button>
+			<button type="button" class="btn btn-outline-danger" onclick="clicarNumero('x')">X</button>
+		</div>
+		<br>
+		<div class="btn-group btn-matrix">
+			<button type="button" class="btn btn-outline-dark" onclick="clicarNumero(3)">3</button>
+			<button type="button" class="btn btn-outline-dark" onclick="clicarNumero(2)">2</button>
+			<button type="button" class="btn btn-outline-dark" onclick="clicarNumero(1)">1</button>
+			<button type="button" class="btn btn-outline-dark" onclick="operador('-')">-</button>
+		</div>
+		<br>
+		<div class="btn-group btn-matrix">
+			<button type="button" class="btn btn-outline-dark" onclick="clicarNumero(0)">0</button>
+			<button type="button" class="btn btn-outline-dark" onclick="operador('.')">.</button>
+			<button type="button" class="btn btn-outline-dark" onclick="calcula()">=</button>
+			<button type="button" class="btn btn-outline-dark" onclick="operador('+')">+</button>
+		</div>
+		<br>
+		<button type="button" class="btn btn-outline-dark" onclick="apagar()">C</button>
+		</div>
 
-<p id="demo"></p>
-<div class="btn-group btn-matrix">
-<button type="button" class="btn btn-default" onclick="clicarNumero(9)">9</button>
-<button type="button" class="btn btn-default" onclick="clicarNumero(8)">8</button>
-<button type="button" class="btn btn-default" onclick="clicarNumero(7)">7</button>
-<button type="button" class="btn btn-default" onclick="operador('/')">/</button>
-<br>
-<button type="button" class="btn btn-default" onclick="clicarNumero(6)">6</button>
-<button type="button" class="btn btn-default" onclick="clicarNumero(5)">5</button>
-<button type="button" class="btn btn-default" onclick="clicarNumero(4)">4</button>
-<button type="button" class="btn btn-default" onclick="clicarNumero('x')">X</button>
-<br>
-<button type="button" class="btn btn-default" onclick="clicarNumero(3)">3</button>
-<button type="button" class="btn btn-default" onclick="clicarNumero(2)">2</button>
-<button type="button" class="btn btn-default" onclick="clicarNumero(1)">1</button>
-<button type="button" class="btn btn-default" onclick="operador('-')">-</button>
-<br>
-<button type="button" class="btn btn-default" onclick="clicarNumero(0)">0</button>
-<button type="button" class="btn btn-default" onclick="operador('.')">.</button>
-<button type="button" class="btn btn-default" onclick="calcula()">=</button>
-<button type="button" class="btn btn-default" onclick="operador('+')">+</button>
-<br>
-<button type="button" class="btn btn-default" onclick="apagar()">C</button>
-</div>
+		<script>
+			var op1, op2, op;
+			var estado = 0, result;
 
-<script>
-var  op1, op2, op;
-var estado = 0, result;
+			function clicarNumero(numero) {
+				switch (estado) {
+					case 0:
+						document.getElementById('demo').innerHTML += numero;
+						break;
+					case 1:
+						document.getElementById('demo').innerHTML = numero;
+						estado = 0;
+						break;
+				}
+			}
 
-function clicarNumero(numero){
-	switch(estado){
-	case 0: 
-		document.getElementById('demo').innerHTML += numero;
-		break;
-	case 1:
-		document.getElementById('demo').innerHTML = numero;
-		estado = 0;
-		break;
-	}
-}
+			function operador(operador) {
+				estado = 1;
+				op = operador;
+				op1 = document.getElementById('demo').innerHTML;
 
-function operador(operador){
-	estado = 1;
-	op = operador;
-	op1 = document.getElementById('demo').innerHTML;
+			}
 
-}
+			function apagar() {
+				document.getElementById('demo').innerHTML = '';
+			}
 
-function apagar(){
-	document.getElementById('demo').innerHTML = '';
-}
+			function calcula() {
+				op2 = document.getElementById('demo').innerHTML;
 
-function calcula (){
-	op2 = document.getElementById('demo').innerHTML;
-	
-	switch (op){
-		case '+':
-			document.getElementById('demo').innerHTML = parseFloat(op1) + parseFloat(op2)
-			break
-	}
-}
+				switch (op) {
+					case '+':
+						document.getElementById('demo').innerHTML = parseFloat(op1) + parseFloat(op2)
+						break
+					case '-':
+						document.getElementById('demo').innerHTML = parseFloat(op1) - parseFloat(op2)
+						break
 
-</script>
+				}
+			}
 
-</body>
+		</script>
+
+	</body>
 </center>
+
 </html>

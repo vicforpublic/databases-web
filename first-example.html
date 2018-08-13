@@ -3,28 +3,9 @@
 <head>
 	
 	<link rel="stylesheet" href="css/css1.css">
+	<script src="scripts/script.js"></script> 
 </head>
 <body>
-	<!-- inline js -->
-<script type="text/javascript">
-function altera() {
-	var myobject = document.getElementById('demo')
-	console.log(myobject)
-	if (myobject.innerHTML == ''){
-		myobject.innerHTML = Date()
-	}
-	else {
-		myobject.innerHTML = 'stop importuning'
-		alert("you thief");
-
-	}
-}
-function changeToItalic(){
-	var element = document.getElementById("btn1");
-	element.classList.toggle("normal-it");
-	element.classList.toggle("notnormal");
-}
-</script>
 
 <h2>My (not) First JavaScript</h2>
 
@@ -36,7 +17,27 @@ Click me to display Date and Time.</button>
 <br>
 <button id="btn1" class = "notnormal" onclick="changeToItalic()">click me to change my css</button>
 
-
+	<!-- inline js -->
+	<script type="text/javascript">
+		function altera() {
+			var myobject = document.getElementById('demo');
+			console.log(myobject);
+			if (myobject.innerHTML == ''){
+				myobject.innerHTML = Date();
+				alert(opaa);
+			}
+			else {
+				myobject.innerHTML = 'stop importuning';
+				alert("you thief");
+		
+			}
+		}
+		function changeToItalic(){
+			var element = document.getElementById("btn1");
+			element.classList.toggle("normal-it");
+			element.classList.toggle("notnormal");
+		}
+		</script>
 
 </body>
 </html>  
